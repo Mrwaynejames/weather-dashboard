@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +14,36 @@
       rel="stylesheet"
       href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="style.css" />
-</head>
+ </head>
 
-<body>
-    <header><h1 class= "row col-12 bg-blue">Weather Dashboard</h1></header>
+ <body class="flex-column 100-vh">
+    <header class="header">
+        <h1 class= "title">Weather Dashboard</h1>
+    </header>
+
+   <main class="flex-row justify-space-between">
+    <section class="col-12 col-md-3">
+
+      <div class="card">
+        <h3 class="card-header">Enter City</h3>
+        <form id="user-form" class="card-body">
+          <input name="city" id="city-input" type="text" autofocus="true" class="form-input col-10" placeholder="city name"/>
+          <button type="submit" value="Submit" id="get-weather" class="btn btn-primary">Get Weather</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3 class="card-header">Past Searches:</h3>
+        <ul class="list-group" id="past-entry"></ul>
+      </div>
+    </section>
+
+    <div class="col-12 col-md-9">
+      <h2 class="subtitle">Showing Repositories for: <span></span></h2>
+      <div id="city-weather" class="list-group"></div>
+    </div>
+
+  </main>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -30,5 +56,5 @@
     ></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
