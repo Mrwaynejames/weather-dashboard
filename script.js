@@ -1,26 +1,43 @@
 var weatherApi = "hrrps://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0665f0648c43bd8f0f67061eb3326c8a";
 var geocodeApi = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},ISO 3166-2:US&limit=&appid=684fb99c1378d181ad0cdef05eb04ec0";
 var cities = []; 
+//var lat = weatherResponse.coord.lat;
+//var lon = weatherResponse.coord.lon;
+//var iconApi = "https://openweathermap.org/img/wn/${icons}.png"
+//var icons = weatherresponse.weather[0].icon
+var today = moment().format('L');
+console.log(today)
 
 function displayCityWeather() {
-    var cityname = $(this).attr("data-city");
-    var queryURL = //open weather API + city + end of URL
+    //var cityname = $(this).attr("data-city");
+   
 
     $.ajax({
-        url:weatherApi,
+        url: weatherApi,
         method: "GET"
     }).then(function(weatherResponse){
-        console.log(WeatherResponse)
+        console.log(weatherResponse)
+
+        $("#weather-info").css("display", "block");
         $("#city-weather").empty();
 
-        var weatherDiv = $("<div>")
-        weatherDiv.attr("class", 'movie');
+        var iconApi = "https://openweathermap.org/img/wn/${icons}.png"
+        var icons = weatherresponse.weather[0].icon
 
-        console.log(response);
-        $("city-weather").prepend(weatherDiv);
+        var currentCity = $(`
+            <h2 id="currentCity">
+                ${weatherResponse.name} ${today} <img src="${iconApi}" alt="${weatherResponse.weather[0].description}" />
+            </h2>
+            <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
+            <p>Humidity: ${cityWeatherResponse.main.humidity}\%</p>
+            <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
+        `);
+
+        $("city-weather").append(currentCity);
+
     })
 
-    renderButtons()
+   // generated button below
 }
 function renderButtons() {
     $("#past-entry").empty();
