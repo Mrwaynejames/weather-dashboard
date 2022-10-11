@@ -1,5 +1,6 @@
-var weatherApi = "hrrps://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0665f0648c43bd8f0f67061eb3326c8a";
-var geocodeApi = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},ISO 3166-2:US&limit=&appid=684fb99c1378d181ad0cdef05eb04ec0";
+var weatherApi = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0665f0648c43bd8f0f67061eb3326c8a";
+var geocodeApi = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=0665f0648c43bd8f0f67061eb3326c8a";
+var currentApi = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=0665f0648c43bd8f0f67061eb3326c8a";
 var cities = []; 
 //var lat = weatherResponse.coord.lat;
 //var lon = weatherResponse.coord.lon;
@@ -13,7 +14,7 @@ function displayCityWeather() {
    
 
     $.ajax({
-        url: weatherApi,
+        url: currentApi,
         method: "GET"
     }).then(function(weatherResponse){
         console.log(weatherResponse)
@@ -26,7 +27,7 @@ function displayCityWeather() {
 
         var currentCity = $(`
             <h2 id="currentCity">
-                ${weatherResponse.name} ${today} <img src="${iconApi}" alt="${weatherResponse.weather[0].description}" />
+                ${weatherResponse.name} ${today} <img src="${iconApi}"/>
             </h2>
             <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
             <p>Humidity: ${cityWeatherResponse.main.humidity}\%</p>
@@ -36,9 +37,29 @@ function displayCityWeather() {
         $("city-weather").append(currentCity);
 
     })
+}
+function forecastedweather() {
+    
+    $.ajax({
+        url: weatherApi,
+        method: "GET"
+    }).then(function(fiveDay){
+        console.log(fiveDay);
+        $("#forecast").empty
+
+        for (var i=1; i<6; i++) {
+            var weatherData = {
+                date: fiveDay.daily[i].dt,
+                icon: fiveDay.daily[i].weather[0].icon,
+                temp: fiveDay.daily[i].temp.day,
+                humidity: fiveDay.daily[i].humidity
+            }
+        }
+    })
+}
 
    // generated button below
-}
+
 function renderButtons() {
     $("#past-entry").empty();
     for (var i=0; i < cities.length; i++) {
