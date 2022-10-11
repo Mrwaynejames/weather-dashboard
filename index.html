@@ -21,8 +21,8 @@
         <h1 class= "title">Weather Dashboard</h1>
     </header>
 
-   <main class="flex-row justify-space-between">
-    <section class="col-12 col-md-3">
+   <main class="flex-row justify-space-between container">
+    <section class="col-12 col-md-3 pt-3">
 
       <div class="card">
         <h3 class="card-header">Enter City</h3>
@@ -33,15 +33,23 @@
       </div>
 
       <div class="card">
-      <h3 class="card-header">Past Searches:</h3>
-      // try out div with the id buttons view
-        <ul class="list-group" id="past-entry"></ul>
+        <h3 class="card-header">Past Searches:</h3>
+        <ul class="list-group btn rounded" id="past-entry"></ul>
       </div>
     </section>
 
-    <div class="col-12 col-md-9">
-      <h2 class="subtitle">Weather: <span></span></h2>
-      <div id="city-weather" class="list-group"></div>
+    <div class="col-12 col-md-9" id="weather-info">
+      <div class="row pb-3 mr-2 ml-2"></div>
+      <div id="city-weather" class="col-12 p-3"></div>
+    
+      <div class="row py-2">
+        <div class="col-12">
+          <h3>5 Day Forecast</h3>
+        </div>
+      </div>
+
+      <div id="forecast" class="row pl-2"></div>
+
     </div>
 
   </main>

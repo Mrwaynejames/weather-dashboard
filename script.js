@@ -1,17 +1,16 @@
-var weatherApi = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0665f0648c43bd8f0f67061eb3326c8a";
-var geocodeApi = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},ISO 3166-2:US&limit=1&appid=684fb99c1378d181ad0cdef05eb04ec0";
-
-
+var weatherApi = "hrrps://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0665f0648c43bd8f0f67061eb3326c8a";
+var geocodeApi = "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},ISO 3166-2:US&limit=&appid=684fb99c1378d181ad0cdef05eb04ec0";
 var cities = []; 
+
 function displayCityWeather() {
-    var weather = $(this).attr("data-city");
+    var cityname = $(this).attr("data-city");
     var queryURL = //open weather API + city + end of URL
 
     $.ajax({
         url:weatherApi,
         method: "GET"
-    }).then(function(response){
-        console.log(response)
+    }).then(function(weatherResponse){
+        console.log(WeatherResponse)
         $("#city-weather").empty();
 
         var weatherDiv = $("<div>")
