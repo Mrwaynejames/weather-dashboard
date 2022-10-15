@@ -6,10 +6,14 @@ This weather dashboard is used to give the user not only the current weather but
 On the site it is visually easy to understand because next to the weather condition there are icons that showcase the weather.
 
 ## Deployment Link
+https://mrwaynejames.github.io/weather-dashboard/
 
 ## Usage
 
-To use the site you will need to enter a cities name in the search box. To the right of the search bar the current weather and five day forecast will be displayed.
+To use the site you will need to enter a city's name in the search box. To the right of the search bar the current weather and five day forecast will be displayed. Under the searcvh bar buttons will be generated that related to your past searched city to allow the user to have easy acces to past searched.
+
+(images/Forecast.gif)
+
 
 ## License
 MIT License
