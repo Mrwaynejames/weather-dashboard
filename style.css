@@ -18,7 +18,34 @@ button{
 .justify-space-between {
     justify-content: space-between;
   }
-
+#weather-info {
+    display: none;
+}
  
+#past-entry,
+#city-weather,
+.card {
+    background-color: #5a6c73;
+}
 
-    
+
+#forecast .card {
+    border: 1px solid white;
+}
+
+#past-entry li {
+    background-color: #97a6a4;
+    color: #f8f8ff;
+}
+
+p{
+    color:black;
+}
+
+h1, h3 {
+    color: #030304;
+}
+
+body{
+    background-color: #97a6a4;
+}
